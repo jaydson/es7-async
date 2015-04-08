@@ -16,3 +16,10 @@ Playing around with ES7 async/await
 
 }());
 ```
+
+## How to run
+```bash
+npm install
+grunt
+```
+Serve the dist folder.
