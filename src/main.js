@@ -71,7 +71,7 @@ requestP('products.json')
 	console.log('Promises/products >>>', products);
 });
 
-// Promise.all
+// Parallel operations with promises
 // Getting data, users and products
 Promise.all([
 	requestP('data.json'),
@@ -79,7 +79,7 @@ Promise.all([
 	requestP('products.json')
 ])
 .then(function(data) {
-	console.log('Promises.all >>>', data);
+	console.log('Parallel promises >>>', data);
 });
 
 // Promises with the fetch API
@@ -128,13 +128,41 @@ fetch('products.json')
 
 	// Async/await using the fetch API
 	try {
-		let response = await fetch('data.json');
-		if (response.status >= 200 && response.status < 300) {
-			let data = await response.json();
-			console.log('ASYNC/AWAIT >>>',data);
-		}
+
+		// Getting data
+		let data = await fetch('data.json');
+
+		// Parsing data
+		let parsedData = await data.json();
+
+		// Getting users
+		let users = await fetch('users.json');
+
+		// Parsing users
+		let parsedUsers = await users.json();
+
+		// Getting products
+		let products = await fetch('products.json');
+
+		// Parsing products
+		let parsedProducts = await products.json();
+
+
+		console.log('ES7 Async+fetch/data >>>', parsedData);
+		console.log('ES7 Async+fetch/users >>>', parsedUsers);
+		console.log('ES7 Async+fetch/products >>>', parsedProducts);
+
+		
 	} catch (error) {
 		console.log(error);
 	}
+
+	// Parallel operations with async
+	let parallelData = await* [
+		requestP('data.json'),
+		requestP('users.json'),
+		requestP('products.json')
+	];
+	console.log('Async parallel >>>', parallelData);
 
 }());
