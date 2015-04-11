@@ -165,4 +165,12 @@ fetch('products.json')
 	];
 	console.log('Async parallel >>>', parallelData);
 
+	// Parallel operations with async + fetch
+	let parallelDataFetch = await* [
+		(await fetch('data.json')).json(),
+		(await fetch('users.json')).json(),
+		(await fetch('products.json')).json()
+	];
+	console.log('Async parallel+fetch >>>', parallelDataFetch);
+
 }());
