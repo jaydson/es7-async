@@ -73,7 +73,7 @@ Promise.all([
 	console.log('Parallel promises >>>', data);
 });
 ```
-The fetch API is the new Ajax substitute. We have a lot of new features and a very nice API, promise-based:  
+The [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is the new Ajax substitute. We have a lot of new features and a very nice promise-based API:  
 ```javascript
 // Promises with the fetch API
 // Getting data
