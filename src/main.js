@@ -1,9 +1,10 @@
-// Not using ES6 imports here due to an issue with Babel
+// Not using ES6 imports here due to an issue with Babel and regenerator
 require('./core');
 require('./fetch');
 let ajax = require('./ajax');
 
 // Callbacks with Ajax
+
 // Getting data
 ajax('data.json', (data) => {
 	console.log('AJAX/data >>>', JSON.parse(data));
@@ -18,31 +19,6 @@ ajax('data.json', (data) => {
 		});
 	});
 });
-
-// Generators
-function request(url) {
-	ajax(url, (response) => {
-		iterator.next(JSON.parse(response));
-	});
-}
-
-function *main() {
-	// Getting data
-	let data = yield request('data.json');
-
-	// Getting users
-	let users = yield request('users.json');
-
-	// Getting products
-	let products = yield request('products.json');
-
-	console.log('Generator/data >>>', data);
-	console.log('Generator/users >>>', users);
-	console.log('Generator/products >>>', products);
-}
-
-var iterator = main();
-iterator.next();
 
 // Promises
 function requestP(url) {
@@ -109,6 +85,31 @@ fetch('products.json')
 .then(function(products) {
 	console.log('Promises+fetch/products >>>', products);
 });
+
+// Generators
+function request(url) {
+	ajax(url, (response) => {
+		iterator.next(JSON.parse(response));
+	});
+}
+
+function *main() {
+	// Getting data
+	let data = yield request('data.json');
+
+	// Getting users
+	let users = yield request('users.json');
+
+	// Getting products
+	let products = yield request('products.json');
+
+	console.log('Generator/data >>>', data);
+	console.log('Generator/users >>>', users);
+	console.log('Generator/products >>>', products);
+}
+
+var iterator = main();
+iterator.next();
 
 // ES7 async/await
 (async () => {
