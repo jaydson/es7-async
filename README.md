@@ -1,5 +1,5 @@
 # es7-async
-Playing around with ES7 async/await
+Playing around with ES7 async functions
 
 ## Study case
 In this study case our program must load 3 resources (json files).  
