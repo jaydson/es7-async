@@ -105,7 +105,7 @@ fetch('products.json')
 ```
 
 ### New powerful friend, generators
-Generators basically are functions that can have their execution paused.  
+[Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) basically are functions that can have their execution paused.  
 Take a look on what we can do with generators:  
 ```javascript
 // Generators
@@ -135,7 +135,7 @@ iterator.next();
 ```
 
 ### The new awesome beast, async functions
-With async functions, we can `await` on Promises.  
+With [async functions](https://github.com/lukehoban/ecmascript-asyncawait), we can `await` on Promises.  
 Take a look (awesomeness alert):  
 ```javascript
 (async () => {
@@ -218,3 +218,9 @@ npm install
 grunt
 ```
 Serve the dist folder, open the `/sample/index.html` and check it out you dev-tools console.  
+
+## References
+http://jakearchibald.com/2014/es7-async-functions/
+http://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html
+http://www.sitepoint.com/simplifying-asynchronous-coding-es7-async-functions/
+
