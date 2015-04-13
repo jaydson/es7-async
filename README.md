@@ -7,7 +7,7 @@ The requests must to be chained, one after another, logging the output for each 
 
 ### Old friend Ajax
 First, let's look how we can accomplish the mission with our old friend Ajax.  
-The `ajax` function is responsible to create an `xhr` object and execute the callback returning the data.  
+The `ajax` function is responsible for creating an `xhr` object and execute the callback returning the data.  
 No big deal here, we have done this a lot in the past, right?  
 
 ```javascript
