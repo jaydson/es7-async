@@ -60,7 +60,7 @@ requestP('products.json')
 	console.log('Promises/products >>>', products);
 });
 ```
-With promises, we can also have parallel execution easily:  
+With promises, we can easily have parallel execution:  
 ```javascript
 // Parallel operations with promises
 // Getting data, users and products
