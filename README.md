@@ -28,8 +28,8 @@ ajax('data.json', (data) => {
 ```
 
 ### Not so new friend, Promises
-`Promises` are around for a while, and now it is part of the ECMAScript 6º edition.  
-With `promises` we can kill the pyramid of doom, having a much more cleaner code.  
+[Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) are around for a while, and now it is part of the ECMAScript 6º edition.  
+With `promises` we eliminate the pyramid of doom (callback hell), having a much more cleaner code.  
 Check it out:  
 ```javascript
 // Promises
