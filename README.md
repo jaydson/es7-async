@@ -220,7 +220,7 @@ grunt
 Serve the dist folder, open the `/sample/index.html` and check it out you dev-tools console.  
 
 ## References
-http://jakearchibald.com/2014/es7-async-functions/
-http://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html
-http://www.sitepoint.com/simplifying-asynchronous-coding-es7-async-functions/
+http://jakearchibald.com/2014/es7-async-functions/  
+http://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html  
+http://www.sitepoint.com/simplifying-asynchronous-coding-es7-async-functions/  
 
