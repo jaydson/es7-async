@@ -1,8 +1,8 @@
 # es7-async
 Playing around with [ES7 async functions](https://github.com/lukehoban/ecmascript-asyncawait)
 
-## Study case
-In this study case our program must load 3 resources (json files).  
+## Case study
+In this case study our program must load 3 resources (json files).  
 The requests must to be chained, one after another, logging the output for each request success.  
 
 ### Old friend Ajax
