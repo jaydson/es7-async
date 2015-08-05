@@ -151,7 +151,7 @@ Take a look (awesomeness alert):
 	console.log('ES7 Async/data >>>', data);
 	console.log('ES7 Async/users >>>', users);
 	console.log('ES7 Async/products >>>', products);
-}());
+})();
 ```
 With the fetch API:  
 ```javascript
@@ -186,7 +186,7 @@ With the fetch API:
 	} catch (error) {
 		console.log(error);
 	}
-}());
+})();
 ```
 Parallel operations with async:  
 ```javascript
@@ -197,7 +197,7 @@ Parallel operations with async:
 		requestP('products.json')
 	];
 	console.log('Async parallel >>>', parallelData);
-}());
+})();
 ```
 
 Parallel operations with async + fetch (Oh my god this is great!):  
@@ -209,7 +209,7 @@ Parallel operations with async + fetch (Oh my god this is great!):
 		(await fetch('products.json')).json()
 	];
 	console.log('Async parallel+fetch >>>', parallelDataFetch);
-}());
+})();
 ```
 
 ## How to run this experiment
