@@ -1,1 +1,4 @@
-require('grunt-babel/node_modules/babel-core/polyfill');
+//require('babel-core/polyfill');
+
+//require('core-js/modules/es6.promise');
+require("regenerator/runtime");
