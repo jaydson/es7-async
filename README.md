@@ -2,13 +2,13 @@
 Playing around with [ES7 async functions](https://github.com/lukehoban/ecmascript-asyncawait)
 
 ## Case study
-In this case study our program must load 3 resources (json files).  
-The requests must to be chained, one after another, logging the output for each request success.  
+In this case study our program must load 3 resources (json files).
+The requests must to be chained, one after another, logging the output for each request success.
 
 ### Old friend Ajax
-First, let's look how we can accomplish the mission with our old friend Ajax.  
-The `ajax` function is responsible for creating an `xhr` object and execute the callback returning the data.  
-No big deal here, we have done this a lot in the past, right?  
+First, let's look how we can accomplish the mission with our old friend Ajax.
+The `ajax` function is responsible for creating an `xhr` object and execute the callback returning the data.
+No big deal here, we have done this a lot in the past, right?
 
 ```javascript
 // Getting data
@@ -28,9 +28,9 @@ ajax('data.json', (data) => {
 ```
 
 ### Not so new friend, Promises
-[Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) are around for a while, and now it is part of the ECMAScript 6º edition.  
-With `promises` we eliminate the pyramid of doom (callback hell), having a much more cleaner code.  
-Check it out:  
+[Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) are around for a while, and now it is part of the ECMAScript 6º edition.
+With `promises` we eliminate the pyramid of doom (callback hell), having a much more cleaner code.
+Check it out:
 ```javascript
 // Promises
 // Wrap the ajax function to return promises
@@ -60,7 +60,7 @@ requestP('products.json')
 	console.log('Promises/products >>>', products);
 });
 ```
-With promises, we can easily have parallel execution:  
+With promises, we can easily have parallel execution:
 ```javascript
 // Parallel operations with promises
 // Getting data, users and products
@@ -73,7 +73,7 @@ Promise.all([
 	console.log('Parallel promises >>>', data);
 });
 ```
-The [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is the new Ajax substitute. We have a lot of new features and a very nice promise-based API:  
+The [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is the new Ajax substitute. We have a lot of new features and a very nice promise-based API:
 ```javascript
 // Promises with the fetch API
 // Getting data
@@ -105,8 +105,8 @@ fetch('products.json')
 ```
 
 ### New powerful friend, generators
-[Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) basically are functions that can have their execution paused.  
-Take a look on what we can do with generators:  
+[Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) basically are functions that can have their execution paused.
+Take a look on what we can do with generators:
 ```javascript
 // Generators
 function request(url) {
@@ -135,8 +135,8 @@ iterator.next();
 ```
 
 ### The new awesome beast, async functions
-With [async functions](https://github.com/lukehoban/ecmascript-asyncawait), we can `await` on Promises.  
-Take a look (awesomeness alert):  
+With [async functions](https://github.com/lukehoban/ecmascript-asyncawait), we can `await` on Promises.
+Take a look (awesomeness alert):
 ```javascript
 (async () => {
 	// Getting data
@@ -153,7 +153,7 @@ Take a look (awesomeness alert):
 	console.log('ES7 Async/products >>>', products);
 }());
 ```
-With the fetch API:  
+With the fetch API:
 ```javascript
 (async () => {
 // Async/await using the fetch API
@@ -182,32 +182,32 @@ With the fetch API:
 		console.log('ES7 Async+fetch/users >>>', parsedUsers);
 		console.log('ES7 Async+fetch/products >>>', parsedProducts);
 
-		
+
 	} catch (error) {
 		console.log(error);
 	}
 }());
 ```
-Parallel operations with async:  
+Parallel operations with async:
 ```javascript
 (async () => {
-	let parallelData = await* [
+	let parallelData = await Promise.all([
 		requestP('data.json'),
 		requestP('users.json'),
 		requestP('products.json')
-	];
+	]);
 	console.log('Async parallel >>>', parallelData);
 }());
 ```
 
-Parallel operations with async + fetch (Oh my god this is great!):  
+Parallel operations with async + fetch (Oh my god this is great!):
 ```javascript
 (async () => {
-	let parallelDataFetch = await* [
+	let parallelDataFetch = await Promise.all([
 		(await fetch('data.json')).json(),
 		(await fetch('users.json')).json(),
 		(await fetch('products.json')).json()
-	];
+	]);
 	console.log('Async parallel+fetch >>>', parallelDataFetch);
 }());
 ```
@@ -217,10 +217,9 @@ Parallel operations with async + fetch (Oh my god this is great!):
 npm install
 grunt
 ```
-Serve the dist folder, open the `/sample/index.html` and check it out you dev-tools console.  
+Serve the dist folder, open the `/sample/index.html` and check it out you dev-tools console.
 
 ## References
-http://jakearchibald.com/2014/es7-async-functions/  
-http://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html  
-http://www.sitepoint.com/simplifying-asynchronous-coding-es7-async-functions/  
-
+http://jakearchibald.com/2014/es7-async-functions/
+http://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html
+http://www.sitepoint.com/simplifying-asynchronous-coding-es7-async-functions/
