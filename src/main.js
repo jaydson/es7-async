@@ -159,19 +159,19 @@ iterator.next();
 	}
 
 	// Parallel operations with async
-	let parallelData = await* [
+	let parallelData = await Promise.all([
 		requestP('data.json'),
 		requestP('users.json'),
 		requestP('products.json')
-	];
+	]);
 	console.log('Async parallel >>>', parallelData);
 
 	// Parallel operations with async + fetch
-	let parallelDataFetch = await* [
+	let parallelDataFetch = await Promise.all([
 		(await fetch('data.json')).json(),
 		(await fetch('users.json')).json(),
 		(await fetch('products.json')).json()
-	];
+	]);
 	console.log('Async parallel+fetch >>>', parallelDataFetch);
 
 }());
